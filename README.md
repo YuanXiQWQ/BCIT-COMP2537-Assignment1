@@ -1,8 +1,15 @@
 # Assignment 1
 
 # Author
+
 Jiarui Xing
 A01354731
+
+# Links
+
+- [GitHub](https://github.com/YuanXiQWQ/BCIT-COMP2537-Assignment1.git)
+- [Host](https://bcit-comp2537-assignment1.onrender.com)
+- [Video]()
 
 # Self-graded Assignment 1 Checklist
 
@@ -11,6 +18,7 @@ A01354731
 
 Criteria
 ========
+
 - [x] A home page links to signup and login, if not logged in; and links to members and signout, if logged in.
 - [x] A members page that displays 1 of 3 random images stored on the server.
 - [x] The members page will redirect to the home page if no valid session is found.
@@ -24,4 +32,5 @@ Criteria
 
       /50 (Total grade out of 50, 5 marks each x 10 items)
 
-*Note items are considered *fully* complete (marked with an x inside the box: [x]), OR incomplete (box is left empty: [ ])
+*Note items are considered *fully* complete (marked with an x inside the box: [x]), OR incomplete (box is left
+empty: [ ])
