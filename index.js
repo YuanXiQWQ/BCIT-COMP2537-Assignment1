@@ -74,7 +74,7 @@ app.use(session({
     // 1 hour in ms
     cookie: {maxAge: 1000 * 60 * 60},
     saveUninitialized: false,
-    resave: true
+    resave: false
 }));
 app.use("/styles", express.static(path.resolve(__dirname, "./public/styles")));
 
@@ -106,6 +106,11 @@ const userSchema = Joi.object({
     password: Joi.string().pattern(regex, {invert: true}).required()
 });
 
+/**
+ * Validate user input
+ * @param input
+ * @throws {Error}
+ */
 function validateUserInput(input) {
     const {error} = userSchema.validate(input);
     if (error) {
