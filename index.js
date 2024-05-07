@@ -3,7 +3,7 @@
  */
 const {MongoClient, ServerApiVersion} = require("mongodb");
 const express = require("express");
-const port = process.env.PORT || 10000;
+const port = process.env.PORT || 4000;
 const path = require("node:path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -114,14 +114,26 @@ function validateUserInput(input) {
 }
 
 const regexErrorMessage = `
+            <h1>400: Invalid Input</h1>
             <pre>
+            Checklist for your input:
+            Username needs 3–25 characters.
+            Email should follow the email format.
+            The Password must contain 5–25 characters, including at least 1 letter, 1 number and 1 special character(!@#$%^&*).
+            Input should be String.
+            Username, email and password should not be empty.
+            
+            Invalid characters/rules:
             Cannot start with "=" while end with "--".
             Cannot start and end with one or more letter or number(\\w+) while "%$#&" within.
             Cannot have "||".
             Cannot have "and", "or" (single word, which space surrounds).
-            Cannot have following keywords:
+            Cannot have the following keywords:
             "select", "update", "union", "and", "or", "delete", "insert", "truncate", "char", "into", "substr", "ascii", "declare", "exec", "count", "master", "drop", "execute"
             </pre>
+            <form action="/index">
+              <input type="submit" value="Back">
+            </form>
         `
 
 /**
@@ -270,7 +282,7 @@ app.post("/login", (req, res) => {
             })
             .finally(() => client.close());
     } catch (e) {
-        res.send(regexErrorMessage);
+        res.status(400).send(regexErrorMessage);
     }
 });
 
@@ -282,7 +294,7 @@ app.post("/signup", (req, res) => {
         console.log("Spawn new session obj: " + JSON.stringify(req.session));
         res.redirect("/member");
     } catch (e) {
-        res.send(regexErrorMessage);
+        res.status(400).send(regexErrorMessage);
     }
 });
 
