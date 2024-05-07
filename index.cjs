@@ -3,6 +3,7 @@
  */
 const {MongoClient, ServerApiVersion} = require("mongodb");
 const express = require("express");
+const port = process.env.PORT || 10000;
 const path = require("node:path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -16,9 +17,12 @@ require("dotenv").config();
  * MongoDB Initialisation
  */
 const config = {
-    user: process.env.MONGODB_USER, password: process.env.MONGODB_PASSWORD,
-    host: process.env.MONGODB_HOST, retryWrites: process.env.MONGODB_RETRY_WRITES,
-    writeConcern: process.env.MONGODB_WRITE_CONCERN, appName: process.env.MONGODB_APP_NAME
+    user: process.env.MONGODB_USER,
+    password: process.env.MONGODB_PASSWORD,
+    host: process.env.MONGODB_HOST,
+    retryWrites: process.env.MONGODB_RETRY_WRITES,
+    writeConcern: process.env.MONGODB_WRITE_CONCERN,
+    appName: process.env.MONGODB_APP_NAME
 };
 const uri = `mongodb+srv://${config.user}:${config.password}@${config.host}/?retryWrites=${config.retryWrites}&w=${config.writeConcern}&appName=${config.appName}`;
 
@@ -301,4 +305,4 @@ function createUser(username, email, password) {
         .finally(() => client.close());
 }
 
-app.listen(3456, () => console.log("Server started on port 3456"));
+app.listen(port, () => console.log(`Server started on port ${port}`));
