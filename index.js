@@ -99,11 +99,10 @@ const images = [
  *
  * @type {RegExp} Regex Expression, invert: true
  */
-const regex = /=.*--|\w+[%$#&]\w+|.*\|\|.*|\s+(?:and|or)\s+|\b(?:select|update|union|and|or|delete|insert|truncate|char|into|substr|ascii|declare|exec|count|master|drop|execute)\b/i;
 const userSchema = Joi.object({
-    username: Joi.string().alphanum().pattern(regex, {invert: true}).required(),
+    username: Joi.string().alphanum().required(),
     email: Joi.string().email().required(),
-    password: Joi.string().pattern(regex, {invert: true}).required()
+    password: Joi.string().required()
 });
 
 /**

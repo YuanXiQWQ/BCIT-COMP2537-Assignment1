@@ -7,9 +7,9 @@ A01354731
 
 # Links
 
-- [GitHub](https://github.com/YuanXiQWQ/BCIT-COMP2537-Assignment1.git)
+- [GitHub](https://github.com/YuanXiQWQ/BCIT-COMP2537-Assignment1)
 - [Host](https://bcit-comp2537-assignment1.onrender.com)
-- [Video]()
+- [Video](https://youtu.be/AIQCPcCjM24)
 
 # Self-graded Assignment 1 Checklist
 
